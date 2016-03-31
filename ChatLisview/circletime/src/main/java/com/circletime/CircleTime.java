@@ -93,26 +93,26 @@ public class CircleTime extends View {
     public void setTime(int hour, int minute, int miao) {
         System.out.println(hour + "--"+minute+"--"+miao);
         if (hour >= 0 && hour <= 3) {
-            hourx = (int) (100 * Math.sin(Math.PI *hour / 6.0));
-            houry = -(int) (100 * Math.cos(Math.PI *hour / 6.0));
+            hourx = (int) (100 * Math.sin(Math.PI *(hour +minute/60)/ 6.0));
+            houry = -(int) (100 * Math.cos(Math.PI *(hour +minute/60)/ 6.0));
 
         }
         if (hour >= 3 && hour <= 6) {
-            System.out.println((((hour + 0.0) / 12) * 360 - 90) + "-------------------------------------");
-            double hx = (((hour + 0.0) / 12) * 360 - 90);
+            System.out.println(((((hour +minute/60) + 0.0) / 12) * 360 - 90) + "-------------------------------------");
+            double hx = ((((hour +minute/60) + 0.0) / 12) * 360 - 90);
 
             hourx = (int) (100 * Math.cos(Math.PI * (hx / 180.0)));
             houry = (int) (100 * Math.sin(Math.PI * (hx / 180.0)));
         }
 
         if (hour >= 6 && hour <= 9) {
-            double hx = (((hour + 0.0) / 12) * 360 - 180);
+            double hx = ((((hour +minute/60) + 0.0) / 12) * 360 - 180);
 
             hourx = -(int) (100 * Math.sin(Math.PI * (hx / 180.0)));
             houry = (int) (100 * Math.cos(Math.PI * (hx / 180.0)));
         }
         if (hour >= 9 && hour <= 12) {
-            double hx = (((hour + 0.0) / 12) * 360 - 270);
+            double hx = ((((hour +minute/60) + 0.0) / 12) * 360 - 270);
 
             hourx = -(int) (100 * Math.cos(Math.PI * (hx / 180.0)));
             houry = -(int) (100 * Math.sin(Math.PI * (hx / 180.0)));
